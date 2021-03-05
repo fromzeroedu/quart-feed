@@ -18,7 +18,7 @@ services:
       SECRET_KEY: "you-will-never-guess"
       DEBUG: 1
       MYSQL_ROOT_PASSWORD: rootpass
-      DB_UESRNAME: qf_user
+      DB_USERNAME: qf_user
       DB_PASSWORD: qf_password
       DB_HOST: mysql
       DATABASE_NAME: quartfeed

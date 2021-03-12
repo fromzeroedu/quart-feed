@@ -1,5 +1,8 @@
+from typing import TYPE_CHECKING
 from sqlalchemy import Table, Column, Integer, String
-from aiomysql.sa.connection import SAConnection
+
+if TYPE_CHECKING:
+    from aiomysql.sa.connection import SAConnection
 
 from db import metadata
 
@@ -13,7 +16,7 @@ user_table = Table(
 )
 
 
-async def get_user_by_username(conn: SAConnection, username: str) -> dict:
+async def get_user_by_username(conn: "SAConnection", username: str) -> dict:
     user_query = user_table.select().where(user_table.c.username == username)
     user_row = await conn.fetch_one(query=user_query)
 
